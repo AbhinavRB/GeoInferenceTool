@@ -1,0 +1,126 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="canvas-css/canvas_style.css"></link>
+	<link rel="stylesheet" type="text/css" href="canvas-css/bootstrap.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="canvas-css/jasny-bootstrap.css"></link>
+
+</head>
+<body >
+	<div id="openModal" class="modalDialog">
+				<div>
+					<a href="#close" title="Close" class="close">X</a>
+				
+					
+				</div>
+			</div>
+	<div class="container-fluid" style="background:#232b2b">
+	<div class="header" style="background:black" id="header">
+		<br><br>
+		<h1 style="text-align:center; color:orange; ">Inference Tool</h1>
+			<div class="navbar navbar-default visible-md visible-sm hidden-lg"> 
+				 <button type="button" class="navbar-toggle navbar-toggle-reveal" data-toggle="offcanvas" data-target="#fixd" data-canvas="#fixd" autoclose:"true">
+				    <span class="icon-bar"></span>
+				    <span class="icon-bar"></span>
+				    <span class="icon-bar"></span>
+		  		</button>
+		  		<a class="navbar-brand">Tools</a>
+			</div>
+	</div>
+	
+
+
+	<br>
+	<div class="container">
+	<div id="DrawArea" position="relative" >
+		<canvas id="Maincanvas" width="800" height="500" style=" background:black"></canvas>
+		<br><br>
+	</div>
+	
+	</div>
+	<div class="nav" id="button-area" >
+		<nav class="navmenu navmenu-default navmenu-fixed-right offcanvas-sm offcanvas-md" id="fixd">
+		<h4>Step 1 : Add Labels to points</h4>
+		<button   class="button"  type='button' id='labels' onClick='addlab()'>Add Labels</button>
+
+		<h4>Step 2 : Detect Points of Intersection</h4>
+		<li><button id="poi" class="button" onClick='detectpoi()'>POI</button><li>
+
+		<h4>Step 3 : Process Drawing</h4>
+		<li><button id="process" class="button" onClick='processdata()'>Process</button><li>
+
+		<h4>Step 4 : Specify angle values</h4>
+		<li><button id="angler" class="button" onClick='angelSubmit()'>Angle values</button><li>
+
+		<h4>Step 5 : Submit Canvas</h4>
+		<li><button id='subbut' class="button" type="button" onClick='sendcanvasdata()' disabled>Submit Canvas</button><li>
+		
+		<li>
+			<br>
+		<button class="button" id='clrButton' type="button" onClick = 'clear_everything()'>Clear</button></li>
+        <li>
+        	<br><button id='angle' class="button" onClick='drawAngle()'>Specify Angle</button><li>
+
+		</nav>
+	</div>
+	<br>
+	<script type="text/javascript" src="canvas-script.js"></script>
+ 
+	<br>
+	<br>
+	<div class="col-md-4 col-md-offset-2" id="AngleArea">
+
+	</div>
+	
+	
+	
+</div>	
+<div class="footer" id="footer" style="background:black;position:relative ;">
+	<br>
+	<br>
+	<br><br>
+	<br>
+	<br><br>
+	<br>
+	<br><br>
+	<br>
+	<br>
+
+
+	</div>
+
+	
+<script src="canvas-css/jquery.min.js"></script>
+<script src="canvas-css/jasny-bootstrap.js"></script>
+<script type="text/javascript">
+          
+		if($(window).width() < 1530 ){
+
+      
+			//alert();
+
+            // distance from top of footer to top of document
+          //  alert($('#tmp_canvas').position().top);
+           // alert($("#header").outerHeight()+"header");
+           var tcan= document.getElementById("tmp_canvas");
+           //tcan.setAttribute("position","relative");
+           $('#tmp_canvas').css({'top':$("#Maincanvas").position().top});
+           //$('#tmp_canvasangle').css({'top':$("#Maincanvas").position().top});
+           //tcan.style.Top = $("#header").outerHeight();
+            //$('#tmp_canvas').position().top= "200px";
+             //alert("new"+ $('#tmp_canvas').position().top);
+             
+}
+            </script>
+<script type="text/javascript">
+
+$(".button").click(function(){
+    // Close offcanvas nav
+    // offcanvas_selector is any valid css selector to get your offcanvas element
+   // $("#fixd").offcanvas('hide');
+  });
+  </script>
+</body>
+</html>
